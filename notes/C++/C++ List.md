@@ -55,6 +55,9 @@
 				EXAMPLE:
 					std::list<int> nums = {1, 2, 3, 4, 5, 6};
 					nums.remove_if([](int x){ return x % 2 == 0;});
+
+		.swap() -- exchanges the contents of two lists without copying each
+		element one by one - O(1)
 			
 **extra syntaxes
 
