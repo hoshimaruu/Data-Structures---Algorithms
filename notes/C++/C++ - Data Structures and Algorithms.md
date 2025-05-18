@@ -1,11 +1,11 @@
-vector-> done
-[[C++ List]]-> inaaral pa
+[[C++ Vector]]-> done
+[[C++ List]]-> done
 introduction ng algorithm->
 linear search (algorithm) -> 
 binary search (algorithm) -> 
-Stack and Queue -> 
-insertionsort (Algorithm) -> 
-Selectionsort (Algorithm) -> 
+Stack and Queue (data structures) -> 
+insertion sort (Algorithm) -> 
+Selection sort (Algorithm) -> 
 Divide and Conquer (DSA Concept) -> 
 Mergesort(Algorithm) -> 
 Quicksort(Algorithm) -> 

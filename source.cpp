@@ -31,10 +31,13 @@ int main() {
     // TODO: Use sort()
     
     // 4. Merge listB into listA
-    listB.merge(listA);
+    listB.merge(listA); ///dapat listA.merge(listB);
     // 5. Remove duplicates from listA 
+
+    //dapat listA.unique() lang
     auto unique = std::unique(listA.begin(), listA.end());
     listA.erase(unique, listA.end());
+
     // 6. Move priority products (IDs 5 and 7) from listB to listA at second position
     auto itB = listB.begin();
     auto itB2 = listB.begin();
