@@ -7,11 +7,6 @@
 Problem Statement:
     Given a vector of integers, return a new vector where all odd numbers are doubled.
     Even numbers remain unchanged.
-
-    Constraints: 
-        1 <= nums.length <= 10^5
-        1 <= nums[i] <= nums.length
-
 */
 class Solution {
     public:
