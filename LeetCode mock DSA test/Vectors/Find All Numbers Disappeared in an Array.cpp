@@ -17,10 +17,32 @@ Problem Statement:
 class Solution {
     public:
         std::vector<int> findDisappearedNumbers(std::vector<int>& nums){
-    }
+            for (int i = 0; i < nums.size(); ++i) {
+                int index = std::abs(nums[i]) - 1;
+                if (nums[index] > 0) {
+                    nums[index] = -nums[index];
+                }
+            }
+
+            std::vector<int> result;
+            for (int i = 0; i < nums.size(); ++i) {
+                if (nums[i] > 0) {
+                    result.push_back(i + 1);  // not visited
+                }
+            }
+                return result;
+        }
 };
+
 
 int main() {
     Solution s;
     std::vector<int> nums = {3, 1, 2, 3, 4, 2, 5};
+    std::vector<int> missing = s.findDisappearedNumbers(nums);
+    std::cout << "Missing numbers: ";
+    for (int num : missing) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
