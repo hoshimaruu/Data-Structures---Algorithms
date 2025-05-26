@@ -1,61 +1,136 @@
 [[C++ - Data Structures and Algorithms]]
-is like an **array** that can **grow or shrink in size** while your program is running.
-**QUESTION: WHY USE -vector? 
-	-It can resize automatically.
-	-provides easy functions.
-	-keeps elements in order, just like an array.
 
-Syntax for declaring a vector: std::vector<int>v
+````markdown
+# C++ - Data Structures and Algorithms  
+## `std::vector`
 
-Common Syntaxes:
-	- .push_back(value)--- adds element to the **end** of the vector.
-	- .pop_back() --- removes the last element.
+A `vector` in C++ is like a dynamic array — it can **grow or shrink in size** while your program is running.
 
-	Index-based Access:
-		Directly access any element in a vector by its position (index), just like an array
-		- .at(index) --- safely access element at given index (with bounds checking).
-			  -Performs bounds checking. If index is invalid, throws an exception
-			  (std::out_of_range)
-			example:
-				std::vector<int> v = {10, 20, 30};
-				try {
-				    std::cout << v.at(10);  // Out of range, throws exception
-				} catch (const std::out_of_range& e) {
-				    std::cout << "Index out of range error: " << e.what() << std::endl;
-				}
-	
-		- operator[] --- access element at given index (no bounds check).
-			example:
-				std::vector<int> v = {10, 20, 30};
-				std::cout << v[1]; // prints 20
+---
 
-	- .size() --- returns number of elements currently stored.
-		---Actual number of elements stored.
-	- .capacity() --- amount of memory allocated (in elements ) without reallocating.
-	- .empty() --- returns true if vector has no elements.
-	- .clear() --- removes all elements from the vector.
-	- .resize(n) --- changes the size of the vector to n.
-	- .insert(iterator pos, value) --- inserts value **before** the element pointed by pos.
-	- .erase(iterator pos) --- removes the element at position pos.
-	- .reserve(n) --- reserves capacity for at least n elements to avoid reallocations.
+## Why Use `vector`?
+- ✅ Automatically resizes as needed  
+- ✅ Provides easy-to-use functions  
+- ✅ Maintains **order** of elements (like arrays)
+
+---
+
+## Basic Syntax
+
+```cpp
+#include <vector>
+
+std::vector<int> v;  // Declare a vector of integers
+````
+
+---
+
+## Common Operations
+
+### Adding and Removing Elements
+
+- `v.push_back(value)` — adds element to the **end** of the vector
     
-Memory Management in std::vector
-	1. Contiguous Memory Allocation
-		-Vectors store elements in a contiguous block of memory, like arrays.
-	2. Capacity vs Size
-		- .size() --- returns number of elements currently stored.
-				---Actual number of elements stored.
-		- .capacity() --- amount of memory allocated (in elements ) without reallocating.
-	3. Pre-allocate Memory
-		-Pre-allocate memory for at least `n` elements to avoid **multiple reallocations** when growing the vector. (reserve(n))
-		When to use?
-			You know roughly how many elements you'll insert.
-	4. Shrink_to_fit()
-		-Tries to reduce the capacity to match the current size.
-		When to use?
-			After removing many elements and you want to free unused memory.
-	5. resize(n)
-		-Resizes the vector to contain `n` elements.
-			Conditions:
-				IF N > CURRENT SIZE: adds default initialized elements.
-				IF N < CURRENT SIZE: removes elements from the back.
+- `v.pop_back()` — removes the **last** element
+    
+
+---
+
+### Accessing Elements
+
+#### Index-Based Access
+
+- `v.at(index)`
+    
+    - Performs **bounds checking**
+        
+    - Throws `std::out_of_range` if index is invalid
+        
+    - **Example:**
+        
+        ```cpp
+        std::vector<int> v = {10, 20, 30};
+        try {
+            std::cout << v.at(10);
+        } catch (const std::out_of_range& e) {
+            std::cout << "Index out of range error: " << e.what() << std::endl;
+        }
+        ```
+        
+- `v[index]`
+    
+    - No bounds checking
+        
+    - **Example:**
+        
+        ```cpp
+        std::vector<int> v = {10, 20, 30};
+        std::cout << v[1];  // Output: 20
+        ```
+        
+
+---
+
+### Size and Capacity
+
+- `v.size()` — number of elements currently stored
+    
+- `v.capacity()` — memory allocated (in elements) before reallocation is needed
+    
+- `v.empty()` — returns `true` if vector is empty
+    
+- `v.clear()` — removes all elements
+    
+
+---
+
+### Modifying Size and Content
+
+- `v.resize(n)` — resizes vector to contain `n` elements
+    
+- `v.insert(iterator, value)` — inserts `value` **before** the given position
+    
+- `v.erase(iterator)` — removes element at the given position
+    
+- `v.reserve(n)` — pre-allocates space for at least `n` elements
+    
+
+---
+
+## Memory Management in `std::vector`
+
+### 1. Contiguous Memory Allocation
+
+- Elements are stored in a **continuous memory block**, just like arrays.
+    
+
+### 2. Capacity vs Size
+
+- `.size()` → Number of elements actually stored
+    
+- `.capacity()` → Allocated space before a reallocation is required
+    
+
+### 3. Pre-Allocating Memory
+
+Use `.reserve(n)` when:
+
+- You roughly know how many elements you'll insert
+    
+- You want to **avoid multiple reallocations**
+    
+
+### 4. Releasing Unused Memory
+
+- `v.shrink_to_fit()` — Attempts to reduce capacity to match size  
+    Use after removing many elements and you want to free memory.
+    
+
+### 5. `resize(n)`
+
+- Resizes vector to contain `n` elements:
+    
+    - If `n > current size`: adds default-initialized elements
+        
+    - If `n < current size`: removes elements from the back
+        
