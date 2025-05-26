@@ -14,6 +14,12 @@ using namespace std;
 
 
 */
+/*
+    PS: Printed the top element of the stack correctly, 
+    but mistakenly labeled or printed the original vector contents incorrectly. 
+    The output showing the “original vector” was actually the reversed stack contents 
+    after popping — not the initial vector order.
+*/
 class Stack {
     private:
         std::vector<int> stack;
