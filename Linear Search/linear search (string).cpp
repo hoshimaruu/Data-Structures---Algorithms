@@ -16,7 +16,6 @@ int main() {
     std::string target = "Mark";
     int size = string.size();
     int result = linearSearch(string, size, target);
-
     if (result != -1) {
         std::cout << "String " << target << " found at index " << result << "." << std::endl;
     } else {
