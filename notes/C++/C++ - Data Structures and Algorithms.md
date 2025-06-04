@@ -4,8 +4,8 @@
 [[Linear Search]] (algorithm) -> done
 [[Binary Search]] (algorithm) -> 
 [[Stacks]] (Data Structures) -> 
-insertion sort (Algorithm) -> 
-Selection sort (Algorithm) -> 
+[[Insertion Sort]] (Algorithm) -> 
+[[Selection Sort]] (Algorithm) -> 
 Divide and Conquer (DSA Concept) -> 
 Mergesort(Algorithm) -> 
 Quicksort(Algorithm) -> 
